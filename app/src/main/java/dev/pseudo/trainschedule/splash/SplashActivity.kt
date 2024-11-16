@@ -1,9 +1,10 @@
-package dev.pseudo.trainschedule
+package dev.pseudo.trainschedule.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import dev.pseudo.trainschedule.MainActivity
 import dev.pseudo.trainschedule.databinding.ActivitySplashBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -5,18 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    android:background="@color/gray_light"
+    tools:context=".splash.SplashActivity">
 
     <TextView
         android:id="@+id/tv_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/merriweather_bold"
         android:text="Train Schedule"
-        android:textSize="20sp"
+        android:textColor="@color/dark"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.45" />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="112dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/ts_logo"
+        app:layout_constraintBottom_toTopOf="@+id/tv_splash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
