@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TrainSchedule"
         tools:targetApi="31">
         <activity
+            android:name=".search_train.SearchTrainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
