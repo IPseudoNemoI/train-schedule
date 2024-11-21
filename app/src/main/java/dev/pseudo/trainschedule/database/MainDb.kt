@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [TrainItem::class], version = 1)
-abstract class MainDb: RoomDatabase() {
+abstract class MainDb : RoomDatabase() {
     abstract fun getDao(): dev.pseudo.trainschedule.database.Dao
 
     companion object {

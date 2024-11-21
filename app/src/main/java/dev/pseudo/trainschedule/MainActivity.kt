@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             if (binding.etFrom.text.toString() == "Новосибирск" && binding.etWhere.text.toString() == "Москва") {
                 startActivity(Intent(this@MainActivity, SearchTrainActivity::class.java))
             } else {
-                Log.d("damn", "Unluck")
                 binding.tvError.text = "Маршрут не найден"
             }
         }
@@ -43,22 +42,21 @@ class MainActivity : AppCompatActivity() {
 
     fun setupFocusListeners() {
         binding.etFrom.setOnFocusChangeListener { _, hasFocus ->
-            if(hasFocus) {
+            if (hasFocus) {
                 binding.tvError.text = ""
                 binding.etFrom.hint = ""
-            }
-            else {
+            } else {
                 binding.etFrom.hint = "Откуда"
-            }
-        }
 
-        binding.etWhere.setOnFocusChangeListener { _, hasFocus ->
-            if(hasFocus) {
-                binding.tvError.text = ""
-                binding.etWhere.hint = ""
             }
-            else {
-                binding.etWhere.hint = "Куда"
+
+            binding.etWhere.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    binding.tvError.text = ""
+                    binding.etWhere.hint = ""
+                } else {
+                    binding.etWhere.hint = "Куда"
+                }
             }
         }
     }
@@ -76,27 +74,38 @@ class MainActivity : AppCompatActivity() {
         val dao = db.getDao()
 
         CoroutineScope(Dispatchers.IO).launch {
-            dao.insertItem(TrainItem(
-                id = null,
-                nameFrom = "Новосибирск",
-                nameWhere = "Москва",
-                price = 10000,
-                timeStart = "10:00",
-                timeFinish = "18:00"))
-            dao.insertItem(TrainItem(
-                id = null,
-                nameFrom = "Москва",
-                nameWhere = "Новосибирск",
-                price = 15000,
-                timeStart = "11:00",
-                timeFinish = "15:00"))
-            dao.insertItem(TrainItem(
-                id = null,
-                nameFrom = "Новосибирск",
-                nameWhere = "Тюмень",
-                price = 999,
-                timeStart = "19:00",
-                timeFinish = "22:00"))
+            dao.insertItem(
+                TrainItem(
+                    id = null,
+                    nameFrom = "Новосибирск",
+                    nameWhere = "Москва",
+                    price = 10000,
+                    timeStart = "10:00",
+                    timeFinish = "18:00"
+                )
+            )
+
+            dao.insertItem(
+                TrainItem(
+                    id = null,
+                    nameFrom = "Москва",
+                    nameWhere = "Новосибирск",
+                    price = 15000,
+                    timeStart = "11:00",
+                    timeFinish = "15:00"
+                )
+            )
+
+            dao.insertItem(
+                TrainItem(
+                    id = null,
+                    nameFrom = "Новосибирск",
+                    nameWhere = "Тюмень",
+                    price = 999,
+                    timeStart = "19:00",
+                    timeFinish = "22:00"
+                )
+            )
         }
     }
 }

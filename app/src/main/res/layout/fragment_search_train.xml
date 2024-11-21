@@ -2,34 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/placeHolder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_light"
-    tools:context=".splash.SplashActivity">
+    tools:context=".search_train.SearchTrainFragment">
 
     <TextView
-        android:id="@+id/tv_splash"
+        android:id="@+id/tv_logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="78dp"
         android:fontFamily="@font/merriweather_bold"
         android:text="Train Schedule"
         android:textColor="@color/dark"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_logo_main"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="112dp"
-        android:layout_height="97dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/ts_logo"
-        app:layout_constraintBottom_toTopOf="@+id/tv_splash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/iv_logo_main"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ts_logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
