@@ -8,14 +8,10 @@ import androidx.room.PrimaryKey
 data class TrainItem(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
-    @ColumnInfo(name = "nameFrom")
-    var nameFrom: String,
-    @ColumnInfo(name = "nameWhere")
-    var nameWhere: String,
-    @ColumnInfo(name = "price")
-    var price: Int,
-    @ColumnInfo(name = "timeStart")
-    var timeStart: String,
-    @ColumnInfo(name = "timeFinish")
-    var timeFinish: String,
+    val route: String,
+    val departureTime: String,
+    val duration: String,
+    val arrivalTime: String,
+    val station: String,
+    val prices: String
 )
