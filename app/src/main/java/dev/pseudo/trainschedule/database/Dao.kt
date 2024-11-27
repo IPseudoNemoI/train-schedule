@@ -11,6 +11,9 @@ interface Dao {
     @Query("DELETE FROM trainItem")
     suspend fun clearAll()
 
+//    @Query("SELECT * FROM trainItem WHERE `from` = :from AND `to` = :to")
+//    fun searchTrains(from: String, to: String): LiveData<List<TrainItem>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTrains(trains: List<TrainItem>)
 

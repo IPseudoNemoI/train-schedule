@@ -1,10 +1,10 @@
 package dev.pseudo.trainschedule.search_train
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,10 +32,15 @@ class SearchTrainFragment : Fragment() {
     ): View {
         binding = FragmentSearchTrainBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.ibBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
 
         val db = MainDb.getDb(requireContext())
         trainDao = db.getDao()
@@ -45,7 +50,8 @@ class SearchTrainFragment : Fragment() {
 
             val initialData = listOf(
                 TrainItem(
-                    route = "Москва — Мурманск",
+                    from = "Москва",
+                    to = "Мурманск",
                     departureTime = "00:41",
                     duration = "8 ч 32 мин",
                     arrivalTime = "09:13",
@@ -53,7 +59,8 @@ class SearchTrainFragment : Fragment() {
                     prices = "Купе: 7188₽, СВ: 16755₽"
                 ),
                 TrainItem(
-                    route = "Нижний Новгород — Санкт-Петербург",
+                    from = "Новосибирск",
+                    to = "Мурманск",
                     departureTime = "00:43",
                     duration = "8 ч 53 мин",
                     arrivalTime = "09:36",
@@ -61,7 +68,8 @@ class SearchTrainFragment : Fragment() {
                     prices = "Купе: 5999₽, СВ: 18000₽"
                 ),
                 TrainItem(
-                    route = "Москва — Санкт-Петербург",
+                    from = "Новосибирск",
+                    to = "Москва",
                     departureTime = "01:00",
                     duration = "10 ч 22 мин",
                     arrivalTime = "11:22",
@@ -69,7 +77,8 @@ class SearchTrainFragment : Fragment() {
                     prices = "Плацкарт: 1910₽, Купе: 3945₽"
                 ),
                 TrainItem(
-                    route = "Белгород — Санкт-Петербург",
+                    from = "Москва",
+                    to = "Мурманск",
                     departureTime = "02:05",
                     duration = "8 ч 42 мин",
                     arrivalTime = "10:47",
@@ -77,7 +86,8 @@ class SearchTrainFragment : Fragment() {
                     prices = "Плацкарт: 1910₽, Купе: 3609₽"
                 ),
                 TrainItem(
-                    route = "Новороссийск — Санкт-Петербург",
+                    from = "Москва",
+                    to = "Мурманск",
                     departureTime = "02:13",
                     duration = "11 ч 5 мин",
                     arrivalTime = "13:18",

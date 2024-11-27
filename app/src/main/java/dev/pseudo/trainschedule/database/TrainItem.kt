@@ -1,6 +1,5 @@
 package dev.pseudo.trainschedule.database
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,7 +7,8 @@ import androidx.room.PrimaryKey
 data class TrainItem(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
-    val route: String,
+    val from: String,
+    val to: String,
     val departureTime: String,
     val duration: String,
     val arrivalTime: String,
