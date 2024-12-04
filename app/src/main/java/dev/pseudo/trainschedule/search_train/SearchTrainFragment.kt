@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.pseudo.trainschedule.R
 import dev.pseudo.trainschedule.adapter.TrainAdapter
 import dev.pseudo.trainschedule.database.Dao
 import dev.pseudo.trainschedule.database.MainDb
@@ -17,6 +15,7 @@ import dev.pseudo.trainschedule.databinding.FragmentSearchTrainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class SearchTrainFragment : Fragment() {
@@ -24,7 +23,7 @@ class SearchTrainFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var trainAdapter: TrainAdapter
     private lateinit var trainDao: Dao
-    lateinit var binding: FragmentSearchTrainBinding
+    private lateinit var binding: FragmentSearchTrainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -96,18 +95,21 @@ class SearchTrainFragment : Fragment() {
                 )
             )
             trainDao.insertTrains(initialData)
+            withContext(Dispatchers.Main) {
+                val fromStation = arguments?.getString("fromStation") ?: ""
+                val toStation = arguments?.getString("toStation") ?: ""
+
+                trainDao.searchTrains(fromStation, toStation)
+                    .observe(viewLifecycleOwner) { trains ->
+                        trainAdapter = TrainAdapter(trains)
+                        recyclerView.adapter = trainAdapter
+                    }
+            }
         }
 
-        recyclerView = view.findViewById(R.id.rv)
+        recyclerView = binding.rv
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        )
 
-        trainDao.getAllTrains().observe(viewLifecycleOwner, { trains ->
-            trainAdapter = TrainAdapter(trains)
-            recyclerView.adapter = trainAdapter
-        })
     }
 
     companion object {

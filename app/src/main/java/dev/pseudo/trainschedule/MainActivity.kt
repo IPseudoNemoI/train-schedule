@@ -9,7 +9,7 @@ import dev.pseudo.trainschedule.search_train.SearchTrainActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +22,25 @@ class MainActivity : AppCompatActivity() {
         setupFocusListeners()
     }
 
-    fun GoToSearchTrainActivity() {
+    private fun GoToSearchTrainActivity() {
         binding.bSearch.setOnClickListener {
-            if (binding.etFrom.text.toString() == "Новосибирск" && binding.etWhere.text.toString() == "Москва") {
-                startActivity(Intent(this@MainActivity, SearchTrainActivity::class.java))
+            val from = binding.etFrom.text.toString()
+            val to = binding.etWhere.text.toString()
+
+            if (from.isNotEmpty() && to.isNotEmpty()) {
+                val intent = Intent(this@MainActivity, SearchTrainActivity::class.java).apply {
+                    putExtra("fromStation", from)
+                    putExtra("toStation", to)
+                }
+                startActivity(intent)
             } else {
-                binding.tvError.text = "Маршрут не найден"
+                binding.tvError.text = "Введите станции отправления и прибытия"
             }
         }
     }
 
-    fun setupFocusListeners() {
+
+    private fun setupFocusListeners() {
         binding.etFrom.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.tvError.text = ""
