@@ -49,24 +49,6 @@ class SearchTrainFragment : Fragment() {
 
             val initialData = listOf(
                 TrainItem(
-                    from = "Москва",
-                    to = "Мурманск",
-                    departureTime = "00:41",
-                    duration = "8 ч 32 мин",
-                    arrivalTime = "09:13",
-                    station = "Ладожский вокзал",
-                    prices = "Купе: 7188₽, СВ: 16755₽"
-                ),
-                TrainItem(
-                    from = "Новосибирск",
-                    to = "Мурманск",
-                    departureTime = "00:43",
-                    duration = "8 ч 53 мин",
-                    arrivalTime = "09:36",
-                    station = "Московский вокзал",
-                    prices = "Купе: 5999₽, СВ: 18000₽"
-                ),
-                TrainItem(
                     from = "Новосибирск",
                     to = "Москва",
                     departureTime = "01:00",
@@ -76,13 +58,22 @@ class SearchTrainFragment : Fragment() {
                     prices = "Плацкарт: 1910₽, Купе: 3945₽"
                 ),
                 TrainItem(
-                    from = "Москва",
-                    to = "Мурманск",
-                    departureTime = "02:05",
-                    duration = "8 ч 42 мин",
-                    arrivalTime = "10:47",
+                    from = "Новосибирск",
+                    to = "Москва",
+                    departureTime = "04:00",
+                    duration = "10 ч 22 мин",
+                    arrivalTime = "15:22",
                     station = "Московский вокзал",
-                    prices = "Плацкарт: 1910₽, Купе: 3609₽"
+                    prices = "Плацкарт: 1710₽, Купе: 3445₽"
+                ),
+                TrainItem(
+                    from = "Новосибирск",
+                    to = "Москва",
+                    departureTime = "09:00",
+                    duration = "10 ч 22 мин",
+                    arrivalTime = "19:22",
+                    station = "Московский вокзал",
+                    prices = "Плацкарт: 2050₽, Купе: 4945₽"
                 ),
                 TrainItem(
                     from = "Москва",
@@ -92,6 +83,114 @@ class SearchTrainFragment : Fragment() {
                     arrivalTime = "13:18",
                     station = "Московский вокзал",
                     prices = "Плацкарт: 1910₽, Купе: 3332₽"
+                ),
+                TrainItem(
+                    from = "Москва",
+                    to = "Санкт-Петербург",
+                    departureTime = "08:00",
+                    duration = "4 ч 30 мин",
+                    arrivalTime = "12:30",
+                    station = "Ладожский вокзал",
+                    prices = "Плацкарт: 1120₽, Купе: 2500₽"
+                ),
+                TrainItem(
+                    from = "Санкт-Петербург",
+                    to = "Москва",
+                    departureTime = "10:00",
+                    duration = "4 ч 30 мин",
+                    arrivalTime = "14:30",
+                    station = "Московский вокзал",
+                    prices = "Плацкарт: 1150₽, Купе: 2600₽"
+                ),
+                TrainItem(
+                    from = "Краснодар",
+                    to = "Ростов-на-Дону",
+                    departureTime = "06:30",
+                    duration = "1 ч 50 мин",
+                    arrivalTime = "08:20",
+                    station = "Краснодар-1",
+                    prices = "Плацкарт: 700₽, Купе: 1500₽"
+                ),
+                TrainItem(
+                    from = "Ростов-на-Дону",
+                    to = "Краснодар",
+                    departureTime = "07:15",
+                    duration = "1 ч 50 мин",
+                    arrivalTime = "09:05",
+                    station = "Ростов-Главный",
+                    prices = "Плацкарт: 700₽, Купе: 1550₽"
+                ),
+                TrainItem(
+                    from = "Сочи",
+                    to = "Москва",
+                    departureTime = "12:00",
+                    duration = "24 ч 15 мин",
+                    arrivalTime = "12:15",
+                    station = "Сочи",
+                    prices = "Плацкарт: 3200₽, Купе: 7000₽"
+                ),
+                TrainItem(
+                    from = "Москва",
+                    to = "Сочи",
+                    departureTime = "15:00",
+                    duration = "24 ч 30 мин",
+                    arrivalTime = "15:30",
+                    station = "Московский вокзал",
+                    prices = "Плацкарт: 3500₽, Купе: 7500₽"
+                ),
+                TrainItem(
+                    from = "Москва",
+                    to = "Сочи",
+                    departureTime = "15:00",
+                    duration = "24 ч 30 мин",
+                    arrivalTime = "15:30",
+                    station = "Московский вокзал",
+                    prices = "Плацкарт: 3100₽, Купе: 7900₽"
+                ),
+                TrainItem(
+                    from = "Москва",
+                    to = "Сочи",
+                    departureTime = "15:00",
+                    duration = "24 ч 30 мин",
+                    arrivalTime = "15:30",
+                    station = "Московский вокзал",
+                    prices = "Плацкарт: 3900₽, Купе: 6100₽"
+                ),
+                TrainItem(
+                    from = "Казань",
+                    to = "Нижний Новгород",
+                    departureTime = "09:00",
+                    duration = "3 ч 15 мин",
+                    arrivalTime = "12:15",
+                    station = "Казань-1",
+                    prices = "Плацкарт: 900₽, Купе: 2000₽"
+                ),
+                TrainItem(
+                    from = "Нижний Новгород",
+                    to = "Казань",
+                    departureTime = "10:30",
+                    duration = "3 ч 15 мин",
+                    arrivalTime = "13:45",
+                    station = "Нижний Новгород",
+                    prices = "Плацкарт: 950₽, Купе: 2100₽"
+                ),
+                TrainItem(
+                    from = "Екатеринбург",
+                    to = "Челябинск",
+                    departureTime = "07:00",
+                    duration = "2 ч 30 мин",
+                    arrivalTime = "09:30",
+                    station = "Екатеринбург-1",
+                    prices = "Плацкарт: 650₽, Купе: 1500₽"
+                ),
+                TrainItem(
+                    from = "Челябинск",
+                    to = "Екатеринбург",
+                    departureTime = "08:15",
+                    duration = "2 ч 30 мин",
+                    arrivalTime = "10:45",
+                    station = "Челябинск",
+                    prices = "Плацкарт: 670₽, Купе: 1550₽"
                 )
             )
             trainDao.insertTrains(initialData)
